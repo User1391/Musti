@@ -1,30 +1,6 @@
 import pygame
 import random
-
-# define some colors (R, G, B)
-WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
-BLACK = (0, 0, 0)       
-FUCHSIA = (255, 0, 255)
-GRAY = (128, 128, 128)
-LIME = (0, 128, 0)
-MAROON = (128, 0, 0)
-NAVYBLUE = (0, 0, 128)
-OLIVE = (128, 128, 0)
-PURPLE = (128, 0, 128)
-RED = (255, 0, 0)
-SILVER = (192, 192, 192)
-TEAL = (0, 128, 128)
-YELLOW = (255, 255, 0)
-ORANGE = (255, 128, 0)
-CYAN = (0, 255, 255)
-
-# basic constants to set up your game
-WIDTH = 360
-HEIGHT = 480
-FPS = 30
-BGCOLOR = BLACK
+from settings import *
 
 # initialize pygame
 pygame.init()
