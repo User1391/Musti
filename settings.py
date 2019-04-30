@@ -4,7 +4,7 @@ import pygame
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
-BLACK = (0, 0, 0)       
+BLACK = (0, 0, 0)
 FUCHSIA = (255, 0, 255)
 GRAY = (128, 128, 128)
 LIME = (0, 128, 0)
@@ -22,6 +22,6 @@ CYAN = (0, 255, 255)
 # Constants
 WIDTH = 360
 HEIGHT = 480
-SCREENTYPE = FULLSCREEN
+SCREENTYPE = pygame.FULLSCREEN
 FPS = 30
 BGCOLOR = BLACK
