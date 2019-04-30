@@ -19,7 +19,7 @@ TEAL = (0, 128, 128)
 YELLOW = (255, 255, 0)
 ORANGE = (255, 128, 0)
 CYAN = (0, 255, 255)
-
+OUTER_SPACE = (65,74,76)
 
 # Constants
 WIDTH = 360
@@ -33,6 +33,8 @@ SPEED = 3
 ROCKETX = 0
 ROCKETY = 50
 GRAVITY = 0
+ASTERX = 0
+ASTERY = 25
 
 # Edited Variables
 ROCKETX += SPEED
