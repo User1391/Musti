@@ -1,6 +1,9 @@
 import pygame
 import random
+import sys
+import os
 from settings import *
+
 
 # initialize pygame
 pygame.init()
@@ -9,6 +12,7 @@ pygame.init()
 # create the game window and set the title
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("My Game")
+catImg = pygame.image.load('sprite')
 # start the clock
 clock = pygame.time.Clock()
 
