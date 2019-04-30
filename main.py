@@ -1,8 +1,9 @@
 import pygame
 import random
 import sys
-import os
 from settings import *
+from pyganim import *
+from physics import *
 
 
 # initialize pygame
@@ -16,10 +17,10 @@ pygame.display.set_caption("Space Create")
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png')]
 ## rocket ##
-rocket = pygame.transform.scale(images[0], (100,100))
+rocket = pygame.transform.scale(images[0], (200,200))
 #######
 # asteroid
-asteroid = pygame.transform.scale(images[1], (100,100))
+asteroid = pygame.transform.scale(images[1], (200,200))
 
 
 
@@ -55,7 +56,6 @@ while running:
 
 
 
-    rectangle = pygame.Rect(200, 150, 100, 50)
 
 
     # after drawing, flip the display
