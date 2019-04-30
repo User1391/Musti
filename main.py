@@ -29,6 +29,9 @@ while running:
 
     # Game loop part 3: Draw #####
     screen.fill(BGCOLOR)
+    rectangle = pygame.Rect(200, 150, 100, 50)
+    pygame.draw.rect(screen, WHITE, rectangle)
+
     # after drawing, flip the display
     pygame.display.flip()
 
