@@ -1,5 +1,5 @@
 ## PHYSICS ##
-class Object:
+class Body:
     def __init__(self, name, mass, posX, posY):
         self.name = name
         self.mass = mass
