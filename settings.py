@@ -1,5 +1,6 @@
 import pygame
 
+
 # Colors
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
@@ -26,3 +27,12 @@ HEIGHT = 480
 SCREENTYPE = pygame.FULLSCREEN
 FPS = 30
 BGCOLOR = BLACK
+
+# Variables
+SPEED = 3
+ROCKETX = 0
+ROCKETY = 50
+GRAVITY = 0
+
+# Edited Variables
+ROCKETX += SPEED

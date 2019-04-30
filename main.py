@@ -10,9 +10,13 @@ pygame.init()
 # initialize sound - uncomment if you're using sound
 # pygame.mixer.init()
 # create the game window and set the title
-screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
+win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
 pygame.display.set_caption("My Game")
-rocket = pygame.image.load("imgs/Rocket.png")
+
+# Sprites
+images = [pygame.image.load('imgs/Rocket.png')]
+
+rocket = images[0]
 # start the clock
 clock = pygame.time.Clock()
 
@@ -24,23 +28,27 @@ while running:
     clock.tick(FPS)
     # Game loop part 1: Events #####
     for event in pygame.event.get():
-        screen.blit(rocket, (2,2))
+        win.blit(rocket, (ROCKETX, ROCKETY))
         # this one checks for the window being closed
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
             sys.exit()
         # add any other events here (keys, mouse, etc.)
-
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
+                pygame.quit()
+                sys.exit()
     # Game loop part 2: Updates #####
 
     # Game loop part 3: Draw #####
-    screen.fill(BGCOLOR)
+    win.fill(BGCOLOR)
     rectangle = pygame.Rect(200, 150, 100, 50)
-    pygame.draw.rect(screen, WHITE, rectangle)
+    pygame.draw.rect(win, WHITE, rectangle)
 
     # after drawing, flip the display
-    pygame.display.flip()
+    
     # update the display
     pygame.display.update()
 
