@@ -16,7 +16,7 @@ pygame.display.set_caption("My Game")
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png')]
 
-rocket = images[0]
+rocket = pygame.transform.scale(images[0], (100,100))
 # start the clock
 clock = pygame.time.Clock()
 
@@ -43,16 +43,13 @@ while running:
     # Game loop part 2: Updates #####
 
     # Game loop part 3: Draw #####
-<<<<<<< HEAD
     # screen.fill(BGCOLOR)
-=======
-    win.fill(BGCOLOR)
->>>>>>> 392f6a9dbbf809ec16eab44e769800fd7e6c794e
+
     rectangle = pygame.Rect(200, 150, 100, 50)
     pygame.draw.rect(win, WHITE, rectangle)
 
     # after drawing, flip the display
-    
+
     # update the display
     pygame.display.update()
 
