@@ -12,7 +12,7 @@ pygame.init()
 # create the game window and set the title
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("My Game")
-catImg = pygame.image.load('sprite')
+rocket = pygame.image.load("imgs/Rocket.png")
 # start the clock
 clock = pygame.time.Clock()
 
