@@ -13,12 +13,16 @@ pygame.init()
 # pygame.mixer.init()
 # create the game window and set the title200
 win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
+
 pygame.display.set_caption("Space Create")
+
+rocket = Body(win, pygame.image.load('imgs/Rocket.png'), "Rocket", 124, 12, 15)
 
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png')]
 ## rocket ##
-rocket = pygame.transform.scale(images[0], (200,200))
+# rocket = pygame.transform.scale(images[0], (200,200))
+rocket.scaleImg((200,200))
 #######
 # asteroid
 asteroid = pygame.transform.scale(images[1], (200,200))
@@ -36,12 +40,12 @@ while running:
     # keep the loop running at the right speed
     clock.tick(FPS)
     # fill in background color
-    win.blit(rocket, (ROCKETX, ROCKETY))
+    rocket.mov((ROCKETX, ROCKETY))
     win.blit(asteroid, (ASTERX, ASTERY))
 
     #movement
     ROCKETX += SPEED
-    rocketRotate = pygame.transform.rotate(rocket, ROTATION)
+    #rocketRotate = pygame.transform.rotate(rocket, ROTATION)
 
     # Game loop part 1: Events #####
     for event in pygame.event.get():
