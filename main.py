@@ -12,13 +12,13 @@ pygame.init()
 # initialize sound - uncomment if you're using sound
 # pygame.mixer.init()
 # create the game window and set the title200
-win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
+win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
 pygame.display.set_caption("Space Create")
 
 
 
 # Sprites
-images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png')]
+images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
 ## rocket ##
 rocket = Body(win, images[0], (60, 35), ROCKET_MASS)
 
@@ -37,12 +37,12 @@ running = True
 # start the game loop
 
 while running:
-    # keep the loop running at the right speed
+    # keep the loop running at 0the right speed
     clock.tick(FPS)
 
     rocket.goto((ROCKETX, ROCKETY))
     asteroid.goto((ASTERX, ASTERY))
-    rocket.drawClipRange()
+    #rocket.drawClipRange()
 
     #movement
     ROCKETX += SPEED
@@ -57,6 +57,7 @@ while running:
             pygame.quit()
             sys.exit()
         # add any other events here (keys, mouse, etc.)
+        if event.type == pygame.MOUSE
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 running = False
@@ -66,6 +67,7 @@ while running:
                 ROTATION = -45
             if event.key == pygame.K_RIGHT:
                 ROTATION = 45
+
 
     # after drawing, flip the display
 
