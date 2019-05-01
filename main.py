@@ -39,9 +39,9 @@ running = True
 while running:
     # keep the loop running at the right speed
     clock.tick(FPS)
-    # fill in background color
-    rocket.mov((ROCKETX, ROCKETY))
 
+    rocket.goto((ROCKETX, ROCKETY))
+    asteroid.goto((ASTERX, ASTERY))
 
     #movement
     ROCKETX += SPEED
