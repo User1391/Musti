@@ -4,8 +4,9 @@ from settings import *
 class Body(object):
     pygame = __import__('pygame')
 
-    def __init__(self, frameName, img, size, mass=0):
+    def __init__(self, frameName, img, pos, size, mass=0):
         self.size = size
+        self.pos = pos
         self.mas = mass
         self.frameName = frameName
         self.image = pygame.transform.scale(img, self.size)
@@ -37,6 +38,4 @@ class Body(object):
     def rotate(self, rotation):
         self.image = pygame.transform.rotate(self.image, rotation)
         return
-
-    def drawClipRange (self):
-        return self.image.fill(WHITE)
+    

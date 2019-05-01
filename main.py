@@ -42,7 +42,7 @@ while running:
 
     rocket.goto((ROCKETX, ROCKETY))
     asteroid.goto((ASTERX, ASTERY))
-    #rocket.drawClipRange()
+
 
     #movement
     ROCKETX += SPEED
@@ -57,7 +57,7 @@ while running:
             pygame.quit()
             sys.exit()
         # add any other events here (keys, mouse, etc.)
-        if event.type == pygame.MOUSE
+        #if event.type == pygame.MOUSE:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 running = False
