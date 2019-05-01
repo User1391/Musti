@@ -12,7 +12,7 @@ pygame.init()
 # initialize sound - uncomment if you're using sound
 # pygame.mixer.init()
 # create the game window and set the title200
-win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
+win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
 pygame.display.set_caption("Space Create")
 
 
@@ -20,12 +20,12 @@ pygame.display.set_caption("Space Create")
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png')]
 ## rocket ##
-rocket = Body(win, images[0], (200, 200),200, 200, ROCKET_MASS)
+rocket = Body(win, images[0], (60, 35), ROCKET_MASS)
 
 
 #######
 # asteroid
-asteroid = Body(win, images[1], (200,200), 100, 100, ASTEROID_MASS)
+asteroid = Body(win, images[1], (200,200), ASTEROID_MASS)
 
 
 # start the clock

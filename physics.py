@@ -4,12 +4,11 @@ from settings import *
 class Body(object):
     pygame = __import__('pygame')
 
-    def __init__(self, frameName, img, size, x, y, mass=0):
+    def __init__(self, frameName, img, size, mass=0):
         self.size = size
         self.mas = mass
         self.frameName = frameName
         self.image = pygame.transform.scale(img, self.size)
-        self.x, self.y = x, y
 
 
     def getSize(self):
