@@ -4,7 +4,7 @@ import sys
 from settings import *
 from pyganim import *
 from physics import *
-from PyQt5 import QtGui
+
 
 
 # initialize pygame
