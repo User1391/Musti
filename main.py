@@ -42,6 +42,7 @@ while running:
 
     rocket.goto((ROCKETX, ROCKETY))
     asteroid.goto((ASTERX, ASTERY))
+    rocket.drawClipRange()
 
     #movement
     ROCKETX += SPEED
