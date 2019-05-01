@@ -36,5 +36,3 @@ class Body(object):
     def rotate(self, rotation):
         self.image = pygame.transform.rotate(self.image, rotation)
         return
-
-
