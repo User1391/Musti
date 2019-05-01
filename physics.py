@@ -1,4 +1,5 @@
 import pygame
+from settings import *
 ## PHYSICS ##
 class Body(object):
     pygame = __import__('pygame')
@@ -8,6 +9,7 @@ class Body(object):
         self.mas = mass
         self.frameName = frameName
         self.image = pygame.transform.scale(img, self.size)
+
 
     def getSize(self):
         return self.size
@@ -30,8 +32,12 @@ class Body(object):
 
     def scale(self, size):
         self.image = pygame.transform.scale(self.image, size)
+
         return
 
     def rotate(self, rotation):
         self.image = pygame.transform.rotate(self.image, rotation)
         return
+
+    def drawClipRange (self):
+        return self.image.fill(WHITE)
