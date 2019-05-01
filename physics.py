@@ -1,4 +1,4 @@
-
+import pygame
 ## PHYSICS ##
 class Body(object):
     pygame = __import__('pygame')
@@ -7,20 +7,27 @@ class Body(object):
         self.mas = mass
         self.posi = (posX, posY)
         self.frameName = frameName
-        self.img = img
+        self.image = img
+
     def name(self):
         return self.nam
+
     def mass(self):
         return self.mas
+
     def pos(self):
         return self.posi
-    def image(self):
-        return self.img
+
+    def img(self):
+        return self.image
+
     def framename(self):
         return self.frameName
+
     def mov(self, newPos):
-        self.frameName.blit(self.img , newPos)
+        self.frameName.blit(self.image , newPos)
         return
+
     def scaleImg(self, size):
-        pygame.transform.scale()
+        self.image = pygame.transform.scale(self.image, size)
         return

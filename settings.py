@@ -38,3 +38,6 @@ ASTERY = 25
 ROTATION = 45
 # Edited Variables
 ROCKETX += SPEED
+
+# Masses
+ROCKET_MASS = 125

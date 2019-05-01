@@ -13,15 +13,14 @@ pygame.init()
 # pygame.mixer.init()
 # create the game window and set the title200
 win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
-
 pygame.display.set_caption("Space Create")
 
-rocket = Body(win, pygame.image.load('imgs/Rocket.png'), "Rocket", 124, 12, 15)
+
 
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png')]
 ## rocket ##
-# rocket = pygame.transform.scale(images[0], (200,200))
+rocket = Body(win, images[0], "Rocket", ROCKET_MASS, 12, 15)
 rocket.scaleImg((200,200))
 #######
 # asteroid
