@@ -3,11 +3,12 @@ import pygame
 class Body(object):
     pygame = __import__('pygame')
 
-    def __init__(self, frameName, img, size, mass=0):
+    def __init__(self, frameName, img, size, x, y, mass=0):
         self.size = size
         self.mas = mass
         self.frameName = frameName
         self.image = pygame.transform.scale(img, self.size)
+        self.x, self.y = x, y
 
     def getSize(self):
         return self.size
@@ -35,3 +36,5 @@ class Body(object):
     def rotate(self, rotation):
         self.image = pygame.transform.rotate(self.image, rotation)
         return
+
+
