@@ -1,5 +1,11 @@
 import pygame
+import Tkinter as tk
 
+# fullscreenmode stuff
+root = tk.Tk()
+
+screenWidth = root.winfo_screenwidth()
+screenHeight = root.winfo_screenheight()
 
 # Colors
 WHITE = (255, 255, 255)
@@ -22,8 +28,8 @@ CYAN = (0, 255, 255)
 OUTER_SPACE = (65,74,76)
 
 # Constants
-WIDTH = 1920
-HEIGHT = 1080
+WIDTH = screenWidth
+HEIGHT = screenHeight
 SCREENTYPE = pygame.FULLSCREEN
 FPS = 60
 BGCOLOR = BLACK
@@ -42,3 +48,6 @@ ROCKETX += SPEED
 # Masses
 ROCKET_MASS = 125
 ASTEROID_MASS = 10
+
+
+
