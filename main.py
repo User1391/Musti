@@ -20,8 +20,9 @@ pygame.display.set_caption("Space Create")
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png')]
 ## rocket ##
-rocket = Body(win, images[0], "Rocket", ROCKET_MASS, 12, 15)
+rocket = Body(win, images[0], "Rocket", ROCKET_MASS)
 rocket.scaleImg((200,200))
+
 #######
 # asteroid
 asteroid = pygame.transform.scale(images[1], (200,200))
@@ -40,7 +41,7 @@ while running:
     clock.tick(FPS)
     # fill in background color
     rocket.mov((ROCKETX, ROCKETY))
-    win.blit(asteroid, (ASTERX, ASTERY))
+    
 
     #movement
     ROCKETX += SPEED

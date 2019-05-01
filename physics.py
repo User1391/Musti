@@ -2,10 +2,9 @@ import pygame
 ## PHYSICS ##
 class Body(object):
     pygame = __import__('pygame')
-    def __init__(self, frameName, img, name, mass, posX, posY):
+    def __init__(self, frameName, img, name, mass=0):
         self.nam = name
         self.mas = mass
-        self.posi = (posX, posY)
         self.frameName = frameName
         self.image = img
 
@@ -30,4 +29,8 @@ class Body(object):
 
     def scaleImg(self, size):
         self.image = pygame.transform.scale(self.image, size)
+        return
+
+    def rotate(self, rotation):
+        self.image = pygame.transform.rotate(self.image, rotation)
         return
