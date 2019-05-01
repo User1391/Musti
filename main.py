@@ -6,19 +6,6 @@ from pyganim import *
 from physics import *
 from PyQt5 import QtGui
 
-def window():
-   app = QtGui.QApplication(sys.argv)
-   w = QtGui.QWidget()
-   b = QtGui.QLabel(w)
-   b.setText("Hello World!")
-   w.setGeometry(100,100,200,50)
-   b.move(50,20)
-   w.setWindowTitle("PqTY")
-   w.show()
-   sys.exit(app.exec_())
-
-window()
-
 
 # initialize pygame
 pygame.init()
