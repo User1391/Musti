@@ -1,5 +1,5 @@
 import pygame
-import Tkinter as tk
+import tkinter as tk
 
 # fullscreenmode stuff
 root = tk.Tk()
@@ -48,6 +48,3 @@ ROCKETX += SPEED
 # Masses
 ROCKET_MASS = 125
 ASTEROID_MASS = 10
-
-
-

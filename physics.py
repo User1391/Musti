@@ -32,7 +32,6 @@ class Body(object):
 
     def scale(self, size):
         self.image = pygame.transform.scale(self.image, size)
-
         return
 
     def rotate(self, rotation):
