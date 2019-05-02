@@ -5,6 +5,7 @@ from settings import *
 from pyganim import *
 from physics import *
 from intro import *
+from procgen import *
 
 
 # initialize pygame
@@ -18,7 +19,7 @@ pygame.display.set_caption("Space Create")
 
 
 # Sprites
-images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
+images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png'), pygame.image.load('imgs/SpaceRock1.png')]
 ## rocket ##
 rocketAnim = ['imgs/Rocket.png', 'imgs/RocketEx1.png', 'imgs/RocketEx2.png', 'imgs/RocketEx3.png']
 rocket = Body(win, images[0], (60, 35), ROCKET_MASS, rocketAnim)
@@ -28,7 +29,7 @@ rocket = Body(win, images[0], (60, 35), ROCKET_MASS, rocketAnim)
 asteroid = Body(win, images[1], (200,200), ASTEROID_MASS)
 
 # black hole
-bhole = Body(win, images[2], (100,100), ROCKET_MASS)
+bhole = Body(win, images[2], (100,100), ASTEROID_MASS)
 
 
 # start the clock
@@ -70,8 +71,10 @@ while running:
                 ROTATION = -45
             if event.key == pygame.K_RIGHT:
                 ROTATION = 45
-        if event.type == pygame.MOUSEDOWN:
-            
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mousePos = pygame.mouse.get_pos()
+            print(mousePos)
+            bhole.goto(mousePos)
 
 
     # after drawing, flip the display
