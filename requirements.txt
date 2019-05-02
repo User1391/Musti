@@ -1,3 +1,2 @@
-random
-sys
+tkinter
 pygame
