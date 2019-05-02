@@ -1,7 +1,7 @@
 import pygame
-import numpy as np
 from settings import *
 from pyganim import *
+from functions import *
 ## PHYSICS ##
 class Body(object):
     pygame = __import__('pygame')
@@ -9,7 +9,7 @@ class Body(object):
         self._size = size
         self._mas = mass
         self._animA = animArr
-        self._stLoc = loc
+        self.stLoc = loc
         self._frameName = frameName
         self._image = pygame.transform.scale(img, self._size)
         self._animObj = []
@@ -64,9 +64,14 @@ class Body(object):
         return self._anim.blit(self._frameName, loc)
 
     def gotoBH(self):
-        self._stLoc = tuple(np.subtract(self._stLoc, (1, 0)))
-        self._frameName.blit(self._image , self._stLoc)
+        self.stLoc = tuplengine(self.stLoc, (1, 0), '-')
+        self._frameName.blit(self._image , self.stLoc)
         return
+
+    def dest(self):
+        del self
+        return
+
 """class BHole(Body):
     def __init__(self, frame, startloc):
         self.loc = startloc

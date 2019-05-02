@@ -4,8 +4,8 @@ from settings import *
 from pyganim import *
 from physics import *
 from intro import *
-from procgen import *
-
+#from procgen import *
+from functions import *
 
 # initialize pygame
 pygame.init()
@@ -27,7 +27,7 @@ rocket = Body(win, images[0], (60, 35), ROCKET_MASS, (ROCKETX, ROCKETY))
 
 #######
 # asteroid
-asteroid = Body(win, images[3], (200,200), ASTEROID_MASS)
+#asteroid = Body(win, images[3], (200,200), ASTEROID_MASS, (ASTERX, ASTERY))
 asteroidL = []
 # black hole
 #bhole = Body(win, images[2], (100,100), ROCKET_MASS)
@@ -78,10 +78,14 @@ while running:
             if event.key == pygame.K_RIGHT:
                 ROTATION = 45
         if event.type == pygame.MOUSEBUTTONDOWN:
-            bholesL.append(Body(win, images[2], (50,50),  100, (ASTERX, ASTERY)))
+            bholesL.append(Body(win, images[2], (50,50),  100, pygame.mouse.get_pos()))
 
     for thing in bholesL:
-        thing.gotoBH()
+        if thing.stLoc[0] == 0:
+            bholesL.remove(thing)
+            del thing
+        else:
+            thing.gotoBH()
     # after drawing, flip the display
 
     # update the display
