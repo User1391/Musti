@@ -60,3 +60,14 @@ class Body(object):
 
     def blit(self, loc):
         return self._anim.blit(self._frameName, loc)
+
+"""class BHole(Body):
+    def __init__(self, frame, startloc):
+        self.loc = startloc
+        self.frame = frame
+        self.frame.blit(pygame.image.load('imgs/BlackHole.png'),self.loc)
+
+    def blit(self, dest):
+        self.frame.blit(pygame.image.load('imgs/BlackHole.png'),dest)
+        self.loc = dest
+"""

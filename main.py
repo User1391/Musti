@@ -29,8 +29,7 @@ rocket = Body(win, images[0], (60, 35), ROCKET_MASS, rocketAnim)
 asteroid = Body(win, images[1], (200,200), ASTEROID_MASS)
 
 # black hole
-bhole = Body(win, images[2], (100,100), ROCKET_MASS)
-
+bholesL = []
 
 # start the clock
 clock = pygame.time.Clock()
@@ -45,9 +44,8 @@ while running:
     # keep the loop running at 0the right speed
     clock.tick(FPS)
 
-    rocket.blit((ROCKETX, ROCKETY))
-    bhole.goto((ROCKETY, ROCKETX))
-    asteroid.goto((ASTERX, ASTERY))
+    rocket.goto((ROCKETX, ROCKETY))
+
 
 
     #movement
@@ -74,9 +72,10 @@ while running:
             if event.key == pygame.K_RIGHT:
                 ROTATION = 45
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print("MouseDown")
+            bholesL.append(Body(win, images[2], (50,50), 100))
 
-
+    for thing in bholesL:
+        thing.goto((ASTERX, ASTERY))
     # after drawing, flip the display
 
     # update the display
