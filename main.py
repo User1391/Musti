@@ -1,4 +1,4 @@
-import pygame
+
 import random
 import sys
 from settings import *
@@ -19,7 +19,9 @@ pygame.display.set_caption("Space Create")
 
 
 # Sprites
-images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png'), pygame.image.load('imgs/SpaceRock1.png')]
+images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
+images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
+
 ## rocket ##
 rocketAnim = ['imgs/Rocket.png', 'imgs/RocketEx1.png', 'imgs/RocketEx2.png', 'imgs/RocketEx3.png']
 rocket = Body(win, images[0], (60, 35), ROCKET_MASS, rocketAnim)
@@ -29,23 +31,24 @@ rocket = Body(win, images[0], (60, 35), ROCKET_MASS, rocketAnim)
 asteroid = Body(win, images[1], (200,200), ASTEROID_MASS)
 
 # black hole
-bhole = Body(win, images[2], (100,100), ASTEROID_MASS)
-
+bhole = Body(win, images[2], (100,100), ROCKET_MASS)
+bholesL = []
 
 # start the clock
 clock = pygame.time.Clock()
-
+rocket.playAnim()
 menu(win, clock)
 # set the 'running' variable to False to end the game
 running = True
 # start the game loop
 
 while running:
+    win.fill(OUTER_SPACE)
     # keep the loop running at 0the right speed
     clock.tick(FPS)
 
     rocket.goto((ROCKETX, ROCKETY))
-    asteroid.goto((ASTERX, ASTERY))
+
 
 
     #movement
@@ -71,17 +74,18 @@ while running:
                 ROTATION = -45
             if event.key == pygame.K_RIGHT:
                 ROTATION = 45
+        if event.type == pygame.MOUSEDOWN:
+            
         if event.type == pygame.MOUSEBUTTONDOWN:
-            mousePos = pygame.mouse.get_pos()
-            print(mousePos)
-            bhole.goto(mousePos)
+            bholesL.append(Body(win, images[2], (50,50), 100))
 
-
+    for thing in bholesL:
+        thing.goto((ASTERX, ASTERY))
     # after drawing, flip the display
 
     # update the display
 
 
     pygame.display.update()
-    win.fill(OUTER_SPACE)
+
 # close the window
