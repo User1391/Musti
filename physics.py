@@ -10,14 +10,13 @@ class Body(object):
         self._animA = animArr
         self._frameName = frameName
         self._image = pygame.transform.scale(img, self._size)
-        self._rocketAnim = ['imgs/Rocket.png', 'imgs/RocketEx1.png', 'imgs/RocketEx2.png', 'imgs/RocketEx3.png']
         self._animObj = []
         if len(self._animA) != 0:
             for im in self._animA:
                 self._animObj.append((im, 200))
             self._anim = PygAnimation(self._animObj)
-            self._anim.play()
-            
+
+
     def getSize(self):
         return self._size
 
@@ -31,7 +30,7 @@ class Body(object):
         return self._image
 
     def getframename(self):
-        return self._frameName
+        return self._frameName.name()
 
     def goto(self, newPos):
         self._frameName.blit(self._image , newPos)
@@ -45,6 +44,19 @@ class Body(object):
         self._image = pygame.transform.rotate(self._image, rotation)
         return
 
-    def animate(self):
-        self._anim.play()
+    def stopAnim(self):
+        if len(self._animA) != 0:
+            self._anim.stop()
         return
+
+    def pausAnim(self):
+        if len(self._animA) != 0:
+            self._anim.pause()
+        return
+
+    def playAnim(self):
+        return self._anim.stop()
+
+
+    def blit(self, loc):
+        return self._anim.blit(self._frameName, loc)

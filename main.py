@@ -19,6 +19,7 @@ pygame.display.set_caption("Space Create")
 
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
+
 ## rocket ##
 rocketAnim = ['imgs/Rocket.png', 'imgs/RocketEx1.png', 'imgs/RocketEx2.png', 'imgs/RocketEx3.png']
 rocket = Body(win, images[0], (60, 35), ROCKET_MASS, rocketAnim)
@@ -33,17 +34,19 @@ bhole = Body(win, images[2], (100,100), ROCKET_MASS)
 
 # start the clock
 clock = pygame.time.Clock()
-
+rocket.playAnim()
 menu(win, clock)
 # set the 'running' variable to False to end the game
 running = True
 # start the game loop
 
 while running:
+    win.fill(OUTER_SPACE)
     # keep the loop running at 0the right speed
     clock.tick(FPS)
 
-    rocket.goto((ROCKETX, ROCKETY))
+    rocket.blit((ROCKETX, ROCKETY))
+    bhole.goto((ROCKETY, ROCKETX))
     asteroid.goto((ASTERX, ASTERY))
 
 
@@ -78,5 +81,5 @@ while running:
 
 
     pygame.display.update()
-    win.fill(OUTER_SPACE)
+
 # close the window
