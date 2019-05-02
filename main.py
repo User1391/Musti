@@ -73,8 +73,8 @@ while running:
                 ROTATION = -45
             if event.key == pygame.K_RIGHT:
                 ROTATION = 45
-        if event.type == pygame.MOUSEDOWN:
-            
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            print("MouseDown")
 
 
     # after drawing, flip the display
