@@ -1,4 +1,3 @@
-
 import random
 import sys
 from settings import *
@@ -24,19 +23,19 @@ images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid
 
 ## rocket ##
 rocketAnim = ['imgs/Rocket.png', 'imgs/RocketEx1.png', 'imgs/RocketEx2.png', 'imgs/RocketEx3.png']
-rocket = Body(win, images[0], (60, 35), ROCKET_MASS, rocketAnim)
+rocket = Body(win, images[0], (60, 35), ROCKET_MASS, (ROCKETX, ROCKETY))
 
 #######
 # asteroid
-asteroid = Body(win, images[1], (200,200), ASTEROID_MASS)
+asteroid = Body(win, images[1], (200,200), ASTEROID_MASS, (ASTERX, ASTERY))
 
 # black hole
-bhole = Body(win, images[2], (100,100), ROCKET_MASS)
+#bhole = Body(win, images[2], (100,100), ROCKET_MASS)
 bholesL = []
 
 # start the clock
 clock = pygame.time.Clock()
-rocket.playAnim()
+
 menu(win, clock)
 # set the 'running' variable to False to end the game
 running = True
@@ -45,9 +44,10 @@ running = True
 while running:
     win.fill(OUTER_SPACE)
     # keep the loop running at 0the right speed
+
     clock.tick(FPS)
 
-    rocket.goto((ROCKETX, ROCKETY))
+    #rocket.goto((ROCKETX, ROCKETY))
 
 
 
@@ -74,13 +74,11 @@ while running:
                 ROTATION = -45
             if event.key == pygame.K_RIGHT:
                 ROTATION = 45
-        if event.type == pygame.MOUSEDOWN:
-            
         if event.type == pygame.MOUSEBUTTONDOWN:
-            bholesL.append(Body(win, images[2], (50,50), 100))
+            bholesL.append(Body(win, images[2], (50,50),  100, (ASTERX, ASTERY)))
 
     for thing in bholesL:
-        thing.goto((ASTERX, ASTERY))
+        thing.gotoBH()
     # after drawing, flip the display
 
     # update the display
