@@ -4,7 +4,7 @@ import sys
 from settings import *
 from pyganim import *
 from physics import *
-
+from intro import *
 
 
 # initialize pygame
@@ -31,7 +31,7 @@ asteroid = Body(win, images[1], (200,200), ASTEROID_MASS)
 # start the clock
 clock = pygame.time.Clock()
 
-
+menu(win, clock)
 # set the 'running' variable to False to end the game
 running = True
 # start the game loop
