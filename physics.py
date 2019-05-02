@@ -71,14 +71,3 @@ class Body(object):
     def dest(self):
         del self
         return
-
-"""class BHole(Body):
-    def __init__(self, frame, startloc):
-        self.loc = startloc
-        self.frame = frame
-        self.frame.blit(pygame.image.load('imgs/BlackHole.png'),self.loc)
-
-    def blit(self, dest):
-        self.frame.blit(pygame.image.load('imgs/BlackHole.png'),dest)
-        self.loc = dest
-"""
