@@ -28,11 +28,14 @@ rocket = Body(win, images[0], (60, 35), ROCKET_MASS, rocketAnim)
 
 #######
 # asteroid
-asteroid = Body(win, images[1], (200,200), ASTEROID_MASS)
-
+asteroid = Body(win, images[3], (200,200), ASTEROID_MASS)
+asteroidL = []
 # black hole
 bhole = Body(win, images[2], (100,100), ROCKET_MASS)
 bholesL = []
+
+
+
 
 # start the clock
 clock = pygame.time.Clock()
