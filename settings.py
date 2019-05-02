@@ -25,7 +25,7 @@ TEAL = (0, 128, 128)
 YELLOW = (255, 255, 0)
 ORANGE = (255, 128, 0)
 CYAN = (0, 255, 255)
-OUTER_SPACE = (65,74,76)
+OUTER_SPACE = (13, 5, 14)
 
 # Constants
 WIDTH = screenWidth
