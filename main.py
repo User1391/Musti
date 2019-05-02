@@ -1,5 +1,6 @@
 import random
 import sys
+import pygame
 from settings import *
 from pyganim import *
 from physics import *
