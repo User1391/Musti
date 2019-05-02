@@ -1,39 +1,50 @@
 import pygame
 from settings import *
+from pyganim import *
 ## PHYSICS ##
 class Body(object):
     pygame = __import__('pygame')
-
-    def __init__(self, frameName, img, size, mass=0):
-        self.size = size
-        self.mas = mass
-        self.frameName = frameName
-        self.image = pygame.transform.scale(img, self.size)
-
-
+    def __init__(self, frameName, img, size, mass, animArr = []):
+        self._size = size
+        self._mas = mass
+        self._animA = animArr
+        self._frameName = frameName
+        self._image = pygame.transform.scale(img, self._size)
+        self._rocketAnim = ['imgs/Rocket.png', 'imgs/RocketEx1.png', 'imgs/RocketEx2.png', 'imgs/RocketEx3.png']
+        self._animObj = []
+        if len(self._animA) != 0:
+            for im in self._animA:
+                self._animObj.append((im, 200))
+            self._anim = PygAnimation(self._animObj)
+            self._anim.play()
+            
     def getSize(self):
-        return self.size
+        return self._size
 
     def getMass(self):
-        return self.mas
+        return self._mas
 
     def getPos(self):
-        return self.posi
+        return self._posi
 
     def getImg(self):
-        return self.image
+        return self._image
 
     def getframename(self):
-        return self.frameName
+        return self._frameName
 
     def goto(self, newPos):
-        self.frameName.blit(self.image , newPos)
+        self._frameName.blit(self._image , newPos)
         return
 
     def scale(self, size):
-        self.image = pygame.transform.scale(self.image, size)
+        self._image = pygame.transform.scale(self._image, size)
         return
 
     def rotate(self, rotation):
-        self.image = pygame.transform.rotate(self.image, rotation)
+        self._image = pygame.transform.rotate(self._image, rotation)
+        return
+
+    def animate(self):
+        self._anim.play()
         return

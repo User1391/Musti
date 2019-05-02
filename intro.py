@@ -31,7 +31,7 @@ def menu(screen, clock):
                         quit()
 
         # Main Menu UI
-        font = "comicsans"
+        font = "roboto"
         screen.fill(BLUE)
         title=text_format("Space Create",font , 90, SILVER)
         if selected=="start":

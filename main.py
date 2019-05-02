@@ -20,12 +20,15 @@ pygame.display.set_caption("Space Create")
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
 ## rocket ##
-rocket = Body(win, images[0], (60, 35), ROCKET_MASS)
-
+rocketAnim = ['imgs/Rocket.png', 'imgs/RocketEx1.png', 'imgs/RocketEx2.png', 'imgs/RocketEx3.png']
+rocket = Body(win, images[0], (60, 35), ROCKET_MASS, rocketAnim)
 
 #######
 # asteroid
 asteroid = Body(win, images[1], (200,200), ASTEROID_MASS)
+
+# black hole
+bhole = Body(win, images[2], (100,100), ROCKET_MASS)
 
 
 # start the clock
