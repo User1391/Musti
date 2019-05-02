@@ -37,6 +37,3 @@ class Body(object):
     def rotate(self, rotation):
         self.image = pygame.transform.rotate(self.image, rotation)
         return
-
-    def drawClipRange (self):
-        return self.image.fill(WHITE)
