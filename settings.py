@@ -1,5 +1,5 @@
 import pygame
-import tkinter as tk
+import Tkinter as tk
 
 # fullscreenmode stuff
 root = tk.Tk()
