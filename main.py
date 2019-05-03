@@ -52,7 +52,7 @@ while running:
 
     clock.tick(FPS)
 
-    #rocket.goto((ROCKETX, ROCKETY))
+    rocket.goto((30), int(HEIGHT/2))
 
 
 
@@ -83,7 +83,7 @@ while running:
             bholesL.append(Body(win, images[2], (50,50),  100, pygame.mouse.get_pos()))
 
     for thing in bholesL:
-        if thing.stLoc[0] == 0:
+        if thing.stLoc[0] <= 0:
             bholesL.remove(thing)
             del thing
         else:
