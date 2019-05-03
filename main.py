@@ -19,8 +19,8 @@ pygame.display.set_caption("Space Create")
 
 
 # Sprites
-images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
-images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
+images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png'),pygame.image.load('imgs/BackgroundTile.png')]
+
 
 ## rocket ##
 rocketAnim = ['imgs/Rocket.png', 'imgs/RocketEx1.png', 'imgs/RocketEx2.png', 'imgs/RocketEx3.png']
@@ -47,6 +47,7 @@ running = True
 
 while running:
     win.fill(OUTER_SPACE)
+    fillScreen(win)
     # keep the loop running at 0the right speed
 
     clock.tick(FPS)
