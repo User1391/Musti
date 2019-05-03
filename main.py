@@ -29,7 +29,7 @@ rocket = Body(win, images[0], (60, 35), ROCKET_MASS, (ROCKETX, ROCKETY))
 #######
 
 # black hole
-#bhole = Body(win, images[2], (100,100), ROCKET_MASS)
+
 bholesL = []
 
 
@@ -81,12 +81,10 @@ while True:
                 bholesL.append(Body(win, images[2], (50,50),  100, pygame.mouse.get_pos()))
 
         for thing in bholesL:
-            
             if thing.overlaps(rocket):
                 bholesL.remove(thing)
                 del thing
                 running = False
-                print("WOW")
             elif thing.stLoc[0] <= 0:
                 bholesL.remove(thing)
                 del thing

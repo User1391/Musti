@@ -77,7 +77,7 @@ class Body(object):
 
     def overlaps(self, other):
         r1 = int(self._size[1]/2)
-        r2 = int(other.getSize()[1]/2)
+        r2 = int(other.getSize()[0]/2)
         c1 = self.stLoc
         c2 = other.getPos()
         self.dist = int(math.sqrt((c1[0] - c2[0])**2 + (c1[1] - c2[1])**2))
