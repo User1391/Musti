@@ -1,6 +1,5 @@
 import pygame
 import tkinter as tk
-
 # fullscreenmode stuff
 root = tk.Tk()
 
@@ -33,6 +32,7 @@ HEIGHT = screenHeight
 SCREENTYPE = pygame.FULLSCREEN
 FPS = 60
 BGCOLOR = BLACK
+#GRAVCONST = 6.673*(10**-11)
 
 # Variables
 SPEED = 3
@@ -47,5 +47,5 @@ ROTATION = 45
 ROCKETX += SPEED
 
 # Masses
-ROCKET_MASS = 125
-ASTEROID_MASS = 10
+ROCKET_MASS = 1000
+ASTEROID_MASS = 10000

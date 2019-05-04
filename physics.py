@@ -3,6 +3,7 @@ from settings import *
 from pyganim import *
 from functions import *
 import math
+
 ## PHYSICS ##
 class Body(object):
     pygame = __import__('pygame')
@@ -14,6 +15,7 @@ class Body(object):
         self._frameName = frameName
         self._image = pygame.transform.scale(img, self._size)
         self._animObj = []
+        self._rotAng = 0
         self.dist = 0
         if len(self._animA) != 0:
             for im in self._animA:
@@ -46,6 +48,7 @@ class Body(object):
         return
 
     def rotate(self, rotation):
+        #self._rotAng += 
         self._image = pygame.transform.rotate(self._image, rotation)
         return
 

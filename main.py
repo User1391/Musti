@@ -16,7 +16,7 @@ pygame.init()
 win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
 pygame.display.set_caption("Space Create")
 
-
+print(gravity(ROCKET_MASS, ASTEROID_MASS,1000))
 
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
