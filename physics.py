@@ -71,9 +71,9 @@ class Body(object):
         return self._anim.blit(self._frameName, loc)
 
     def gotoBH(self):
-        self.stLoc = tuplengine(self.stLoc, self._bhVect, '-')
+        self.stLoc = tuplengine(self.stLoc, self._bhVect, '+')
         self._frameName.blit(self._image , self.stLoc)
-        print("loc: ",self.stLoc)
+        #print("loc: ",self.stLoc)
         return
 
     def dest(self):
