@@ -34,23 +34,20 @@ bholesL = []
 
 
 
-
+running = True
 # start the clock
 clock = pygame.time.Clock()
 
-while True:
 
-<<<<<<< HEAD
 while running:
     win.fill(OUTER_SPACE)
     fillScreen(win)
     # keep the loop running at 0the right speed
-=======
+
     menu(win, clock)
     # set the 'running' variable to False to end the game
     running = True
     # start the game loop
->>>>>>> master
 
     while running:
         win.fill(OUTER_SPACE)

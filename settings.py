@@ -1,11 +1,8 @@
 import pygame
-<<<<<<< HEAD
 import Tkinter as tk
 import random
+import Tkinter as tk
 
-=======
-import tkinter as tk
->>>>>>> master
 # fullscreenmode stuff
 root = tk.Tk()
 
@@ -53,7 +50,7 @@ ROTATION = 45
 ROCKETX += SPEED
 
 # Masses
-<<<<<<< HEAD
+
 ROCKET_MASS = 125
 ASTEROID_MASS = 10
 
@@ -96,7 +93,7 @@ def fillScreen():
 			createImage()
 			BACKGROUNDX += TILEWIDTH
 
-=======
+
 ROCKET_MASS = 1000
 ASTEROID_MASS = 10000
->>>>>>> master
+
