@@ -18,7 +18,7 @@ pygame.display.set_caption("Space Create")
 
 print(gravity(ROCKET_MASS, ASTEROID_MASS,1000))
 
-# Sprites
+# Spritess
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png')]
 
@@ -37,7 +37,7 @@ bholesL = []
 
 # start the clock
 clock = pygame.time.Clock()
-
+rocketAccel = []
 while True:
 
     menu(win, clock)
@@ -85,16 +85,24 @@ while True:
                 bholesL.remove(thing)
                 del thing
                 running = False
-            elif thing.stLoc[0] <= 0:
+            elif thing.stLoc[0] <= 0 or thing.stLoc[1] <= 0:
                 bholesL.remove(thing)
                 del thing
             else:
-                thing.gotoBH()
+                print("gravity: ", bodyGrav(thing, rocket))
+                rocketAccel.append(bodyGrav(thing, rocket))
+        bigBoi = (0,0)
+        for x in rocketAccel:
+            bigBoi = tuplengine(bigBoi, x, '+')
+        for thing in bholesL:
+
+            thing.update(bigBoi)
+            thing.gotoBH()
     # after drawing, flip the display
 
     # update the display
 
 
         pygame.display.update()
-
+    bholesL = bholesL.clear()
 # close the window

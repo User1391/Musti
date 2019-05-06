@@ -17,4 +17,11 @@ def tuplengine(tuple1, tuple2, operation):
       else eval("tuple( abs(a-b) for a, b in zip( tuple1, tuple2 ))")
 
 def gravity(m1, m2, r):
-    return ((m1*m2)/r**2)/10
+    return ((m1*m2)/r**2)/1000
+
+def bodyGrav(body1, body2):
+    m1 = body1.getMass()
+    m2 = body2.getMass()
+    rx = body1.xdist(body2)
+    ry = body1.ydist(body2)
+    return (gravity(m1, m2, rx), gravity(m1, m2, ry))
