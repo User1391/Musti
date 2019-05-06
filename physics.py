@@ -2,6 +2,8 @@ import pygame
 from settings import *
 from pyganim import *
 from functions import *
+import math
+
 ## PHYSICS ##
 class Body(object):
     pygame = __import__('pygame')
@@ -13,6 +15,8 @@ class Body(object):
         self._frameName = frameName
         self._image = pygame.transform.scale(img, self._size)
         self._animObj = []
+        self._rotAng = 0
+        self.dist = 0
         if len(self._animA) != 0:
             for im in self._animA:
                 self._animObj.append((im, 200))
@@ -26,7 +30,7 @@ class Body(object):
         return self._mas
 
     def getPos(self):
-        return self._posi
+        return self.stLoc
 
     def getImg(self):
         return self._image
@@ -36,6 +40,7 @@ class Body(object):
 
     def goto(self, newPos):
         self._frameName.blit(self._image , newPos)
+        self.stLoc = newPos
         return
 
     def scale(self, size):
@@ -43,6 +48,7 @@ class Body(object):
         return
 
     def rotate(self, rotation):
+        #self._rotAng += 
         self._image = pygame.transform.rotate(self._image, rotation)
         return
 
@@ -71,3 +77,14 @@ class Body(object):
     def dest(self):
         del self
         return
+
+    def overlaps(self, other):
+        r1 = int(self._size[1]/2)
+        r2 = int(other.getSize()[0]/2)
+        c1 = self.stLoc
+        c2 = other.getPos()
+        self.dist = int(math.sqrt((c1[0] - c2[0])**2 + (c1[1] - c2[1])**2))
+        if self.dist <= r1 + r2 and self.dist!=0:
+            return True
+        else:
+            return False

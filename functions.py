@@ -1,3 +1,4 @@
+from settings import *
 def tuplengine(tuple1, tuple2, operation):
     """
     quick and dirty, element-wise, tuple arithmetic helper,
@@ -14,3 +15,6 @@ def tuplengine(tuple1, tuple2, operation):
     return eval("tuple( a{}b for a, b in zip( tuple1, tuple2 ))".format(operation)) \
     if not operation == "d" \
       else eval("tuple( abs(a-b) for a, b in zip( tuple1, tuple2 ))")
+
+def gravity(m1, m2, r):
+    return ((m1*m2)/r**2)/10
