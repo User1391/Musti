@@ -1,7 +1,7 @@
 import pygame
-import Tkinter as tk
+import tkinter as tk
 import random
-import Tkinter as tk
+
 
 # fullscreenmode stuff
 root = tk.Tk()
@@ -79,15 +79,15 @@ def rotation():
 
 
 
-def createImage(self, screen):
-	display = self.screen
+def createImage(screen):
+	display = screen
 	rotation()
 	display.blit(images[4], (BACKGROUNDX, BACKGROUNDY))
 	pygame.transform.rotate(ROTATIONVAR)
 
-def fillScreen():
+def fillScreen(scrn):
 	for y in range(AMNTY):
-		createImage()
+		createImage(scrn)
 		BACKGROUNDY += TILEHEIGHT
 		for x in range(AMNTX):
 			createImage()
@@ -96,4 +96,3 @@ def fillScreen():
 
 ROCKET_MASS = 1000
 ASTEROID_MASS = 10000
-
