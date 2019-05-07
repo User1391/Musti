@@ -9,7 +9,7 @@ def procgen():
 	
 
 	def addObj():
-		asteroidL.append(Body(win, images[3], (50,50), 100))
-		
+		asteroidL.append(Body(win, images[3], (50,50), 100, (screenWidth, rockYpos)))
 
-timer = pygame.time.set_timer(addObj, 3000)
+	timer = pygame.time.set_timer(addObj, 3000)
+
