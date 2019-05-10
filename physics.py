@@ -16,7 +16,7 @@ class Body(object):
         self._image = pygame.transform.scale(img, self._size)
         self._animObj = []
         self._rotAng = 0
-        self._bhVect = (BHSPEED, 0)
+        self._bhVect = (-1*BHSPEED, 0)
         self.dist = 0
         if len(self._animA) != 0:
             for im in self._animA:
@@ -50,8 +50,8 @@ class Body(object):
 
     def rotate(self, rotation):
         #self._rotAng +=
-        self._image = pygame.transform.rotate(self._image, rotation)
-        return
+        self._o = blitRotate(self._frameName, self._image, self.stLoc, self.stLoc, rotation)
+        return self._o
 
     def stopAnim(self):
         if len(self._animA) != 0:
@@ -72,7 +72,7 @@ class Body(object):
 
     def gotoBH(self):
         self.stLoc = tuplengine(self.stLoc, self._bhVect, '+')
-        self._frameName.blit(self._image , self.stLoc)
+        self._frameName.blit(self._image, self.stLoc)
         #print("loc: ",self.stLoc)
         return
 
@@ -91,10 +91,6 @@ class Body(object):
         else:
             return False
 
-    def update(self, accel):
-        self._bhVect = (accel[0], accel[1]*-1)
-        return
-
     def distance(self, other):
         c1 = self.stLoc
         c2 = other.getPos()
@@ -103,9 +99,9 @@ class Body(object):
     def xdist(self, other):
         c1 = self.stLoc
         c2 = other.getPos()
-        return int(c1[0] - c2[0])
+        return c1[0] - c2[0]
 
     def ydist(self, other):
         c1 = self.stLoc
         c2 = other.getPos()
-        return int(c1[1] - c2[1])
+        return c1[1] - c2[1]

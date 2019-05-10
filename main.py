@@ -17,7 +17,7 @@ pygame.init()
 win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
 pygame.display.set_caption("Space Create")
 
-print(gravity(ROCKET_MASS, ASTEROID_MASS,1000))
+
 
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png'),pygame.image.load('imgs/BackgroundTile.png')]
@@ -36,26 +36,26 @@ asteroidL = []
 
 
 
-run = True
-# start the clock
-clock = pygame.time.Clock()
-rocketAccel = []
+run= True
 
 
 while run:
-    win.fill(OUTER_SPACE)
-    fillScreen(win)
+
+    clock = pygame.time.Clock()
+    #fillScreen(win)
     # keep the loop running at 0the right speed
 
     menu(win, clock)
     # set the 'running' variable to False to end the game
     running = True
     # start the game loop
+    # start the clock
+
+    rocketAccel = []
 
     while running:
         win.fill(OUTER_SPACE)
-        procgen()
-        # keep the loop running at 0the right speed
+        # keep the loop running at the right speed
 
         menu(win, clock)
         # set the 'running' variable to False to end the game
@@ -68,7 +68,9 @@ while run:
 
             clock.tick(FPS)
 
-            rocket.goto(((30), int(HEIGHT/2)))
+        #movement
+        #ROCKETX += SPEED
+        #rocketRotate = pygame.transform.rotate(rocket, ROTATION)
 
 
             #movement
@@ -83,42 +85,36 @@ while run:
                     running = False
                     pygame.quit()
                     sys.exit()
-                    # add any other events here (keys, mouse, etc.)
-                    #if event.type == pygame.MOUSE:
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        running = False
-                        pygame.quit()
-                        sys.exit()
-                    if event.key == pygame.K_LEFT:
-                        ROTATION = -45
-                    if event.key == pygame.K_RIGHT:
-                        ROTATION = 45
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    bholesL.append(Body(win, images[2], (50,50),  100, pygame.mouse.get_pos()))
+                if event.key == pygame.K_LEFT:
+                    ROTATION = -45
+
+                if event.key == pygame.K_RIGHT:
+                    ROTATION = 45
+
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                bholesL.append(Body(win, images[2], (50,50),  100, pygame.mouse.get_pos()))
+
 
         for thing in bholesL:
             if thing.overlaps(rocket):
+
                 bholesL.remove(thing)
                 del thing
                 running = False
             elif thing.stLoc[0] <= 0 or thing.stLoc[1] <= 0 or thing.stLoc[0] >= WIDTH or thing.stLoc[1] >= HEIGHT:
                 bholesL.remove(thing)
                 del thing
-            else:
-                ##print("gravity: ", bodyGrav(thing, rocket))
-                rocketAccel.append(bodyGrav(thing, rocket))
-        bigBoi = (0,0)
-        for x in rocketAccel:
-            bigBoi = tuplengine(bigBoi, x, '-')
+
+
         for thing in bholesL:
-            thing.update(bigBoi)
             thing.gotoBH()
     # after drawing, flip the display
 
         # update the display
 
+        rocket.rotate(ROTATION)
+        pygame.display.update()
+    bholesL = []
 
-            pygame.display.update()
-        bholesL = bholesL.clear()
 # close the window
