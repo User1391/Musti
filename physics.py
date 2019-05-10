@@ -16,7 +16,7 @@ class Body(object):
         self._image = pygame.transform.scale(img, self._size)
         self._animObj = []
         self._rotAng = 0
-        self._bhVect = (BHSPEED, 0)
+        self._bhVect = (-1*BHSPEED, 0)
         self.dist = 0
         if len(self._animA) != 0:
             for im in self._animA:
@@ -90,10 +90,6 @@ class Body(object):
             return True
         else:
             return False
-
-    def update(self, accel):
-        self._bhVect = (accel[0], accel[1]*-1)
-        return
 
     def distance(self, other):
         c1 = self.stLoc

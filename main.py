@@ -61,7 +61,7 @@ while run:
 
 
         #movement
-        ROCKETX += SPEED
+        #ROCKETX += SPEED
         #rocketRotate = pygame.transform.rotate(rocket, ROTATION)
 
         # Game loop part 1: Events #####
@@ -93,25 +93,16 @@ while run:
 
         for thing in bholesL:
             if thing.overlaps(rocket):
-                amt = tuplengine(bodyGrav(thing, rocket), (-1, -1), '*')
-                rocketAccel.append(amt)
+
                 bholesL.remove(thing)
                 del thing
                 running = False
             elif thing.stLoc[0] <= 0 or thing.stLoc[1] <= 0 or thing.stLoc[0] >= WIDTH or thing.stLoc[1] >= HEIGHT:
-                amt = tuplengine(bodyGrav(thing, rocket), (-1, -1), '*')
-                thing.update(amt*2)
                 bholesL.remove(thing)
                 del thing
 
-            else:
-                #print("gravity: ", bodyGrav(thing, rocket))
-                rocketAccel.append(bodyGrav(thing, rocket))
-        bigBoi = (0,0)
-        for x in rocketAccel:
-            bigBoi = tuplengine(bigBoi, x, '+')
+
         for thing in bholesL:
-            thing.update(bigBoi)
             thing.gotoBH()
     # after drawing, flip the display
 
