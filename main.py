@@ -16,7 +16,7 @@ pygame.init()
 win = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
 pygame.display.set_caption("Space Create")
 
-print(gravity(ROCKET_MASS, ASTEROID_MASS,1000))
+
 
 # Sprites
 images = [pygame.image.load('imgs/Rocket.png'), pygame.image.load('imgs/Asteroid.png'), pygame.image.load('imgs/BlackHole.png'),pygame.image.load('imgs/BackgroundTile.png')]
@@ -34,25 +34,26 @@ bholesL = []
 
 
 
-running = True
-# start the clock
-clock = pygame.time.Clock()
-rocketAccel = []
-while True:
+run= True
 
-while running:
-    win.fill(OUTER_SPACE)
-    fillScreen(win)
+
+while run:
+
+    clock = pygame.time.Clock()
+    #fillScreen(win)
     # keep the loop running at 0the right speed
 
     menu(win, clock)
     # set the 'running' variable to False to end the game
     running = True
     # start the game loop
+    # start the clock
+
+    rocketAccel = []
 
     while running:
         win.fill(OUTER_SPACE)
-        # keep the loop running at 0the right speed
+        # keep the loop running at the right speed
 
         clock.tick(FPS)
 
@@ -75,30 +76,40 @@ while running:
                 #if event.type == pygame.MOUSE:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
+                    bholesL = []
                     running = False
                     pygame.quit()
                     sys.exit()
                 if event.key == pygame.K_LEFT:
                     ROTATION = -45
+
                 if event.key == pygame.K_RIGHT:
                     ROTATION = 45
+
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 bholesL.append(Body(win, images[2], (50,50),  100, pygame.mouse.get_pos()))
 
+
         for thing in bholesL:
             if thing.overlaps(rocket):
+                amt = tuplengine(bodyGrav(thing, rocket), (-1, -1), '*')
+                rocketAccel.append(amt)
                 bholesL.remove(thing)
                 del thing
                 running = False
             elif thing.stLoc[0] <= 0 or thing.stLoc[1] <= 0 or thing.stLoc[0] >= WIDTH or thing.stLoc[1] >= HEIGHT:
+                amt = tuplengine(bodyGrav(thing, rocket), (-1, -1), '*')
+                thing.update(amt*2)
                 bholesL.remove(thing)
                 del thing
+
             else:
-                ##print("gravity: ", bodyGrav(thing, rocket))
+                #print("gravity: ", bodyGrav(thing, rocket))
                 rocketAccel.append(bodyGrav(thing, rocket))
         bigBoi = (0,0)
         for x in rocketAccel:
-            bigBoi = tuplengine(bigBoi, x, '-')
+            bigBoi = tuplengine(bigBoi, x, '+')
         for thing in bholesL:
             thing.update(bigBoi)
             thing.gotoBH()
@@ -106,7 +117,8 @@ while running:
 
     # update the display
 
-
+        rocket.rotate(ROTATION)
         pygame.display.update()
-    bholesL = bholesL.clear()
+    bholesL = []
+
 # close the window

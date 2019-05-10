@@ -1,7 +1,7 @@
 import pygame
-import Tkinter as tk
+import tkinter as tk
 import random
-import Tkinter as tk
+
 
 # fullscreenmode stuff
 root = tk.Tk()
@@ -40,7 +40,7 @@ BGCOLOR = BLACK
 # Variables
 SPEED = 3
 BHSPEED = 7
-ROCKETX = 0
+ROCKETX = 100
 ROCKETY = 100
 GRAVITY = 0
 ASTERX = 0
@@ -96,4 +96,3 @@ def fillScreen():
 
 ROCKET_MASS = 1000
 ASTEROID_MASS = 10000
-
