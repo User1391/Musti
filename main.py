@@ -74,7 +74,7 @@ while run:
 
 
             #movement
-            ROCKETX += SPEED
+            #ROCKETX += SPEED
             #rocketRotate = pygame.transform.rotate(rocket, ROTATION)
 
             # Game loop part 1: Events #####
@@ -85,36 +85,42 @@ while run:
                     running = False
                     pygame.quit()
                     sys.exit()
-                if event.key == pygame.K_LEFT:
-                    ROTATION = -45
 
-                if event.key == pygame.K_RIGHT:
-                    ROTATION = 45
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
+
+                    if event.key == pygame.K_LEFT:
+                        ROTATION = -45
+
+                    if event.key == pygame.K_RIGHT:
+                        ROTATION = 45
 
 
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                bholesL.append(Body(win, images[2], (50,50),  100, pygame.mouse.get_pos()))
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    bholesL.append(Body(win, images[2], (50,50),  100, pygame.mouse.get_pos()))
 
 
-        for thing in bholesL:
-            if thing.overlaps(rocket):
+            for thing in bholesL:
+                if thing.overlaps(rocket):
 
-                bholesL.remove(thing)
-                del thing
+                    bholesL.remove(thing)
+                    del thing
+                    running = False
+                elif thing.stLoc[0] <= 0 or thing.stLoc[1] <= 0 or thing.stLoc[0] >= WIDTH or thing.stLoc[1] >= HEIGHT:
+                    bholesL.remove(thing)
+                    del thing
+
+
+            for thing in bholesL:
+                thing.gotoBH()
+
+            if rocket.getPos[1] <= 0 or rocket.getPos[1] >= WIDTH:
                 running = False
-            elif thing.stLoc[0] <= 0 or thing.stLoc[1] <= 0 or thing.stLoc[0] >= WIDTH or thing.stLoc[1] >= HEIGHT:
-                bholesL.remove(thing)
-                del thing
-
-
-        for thing in bholesL:
-            thing.gotoBH()
-    # after drawing, flip the display
 
         # update the display
-
-        rocket.rotate(ROTATION)
-        pygame.display.update()
+            rocket.goto((ROCKETX, ROCKETY))
+            pygame.display.update()
     bholesL = []
 
 # close the window
